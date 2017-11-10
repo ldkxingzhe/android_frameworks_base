@@ -366,7 +366,7 @@ public class KeyguardBottomAreaView extends FrameLayout implements View.OnClickL
                 // Display left shortcut
             }
         }
-        mLeftAffordanceView.setVisibility(visible ? View.VISIBLE : View.GONE);
+        mLeftAffordanceView.setVisibility(View.GONE);
     }
 
     private void updateCameraVisibility() {
@@ -386,7 +386,7 @@ public class KeyguardBottomAreaView extends FrameLayout implements View.OnClickL
                         && getResources().getBoolean(R.bool.config_keyguardShowCameraAffordance);
             }
         }
-        mCameraImageView.setVisibility(visible ? View.VISIBLE : View.GONE);
+        mCameraImageView.setVisibility(View.GONE);
     }
 
     private void updateLeftAffordanceIcon() {
@@ -407,7 +407,7 @@ public class KeyguardBottomAreaView extends FrameLayout implements View.OnClickL
             drawable = mContext.getDrawable(R.drawable.ic_phone_24dp);
             contentDescription = mContext.getString(R.string.accessibility_phone_button);
         }
-        mLeftAffordanceView.setVisibility(visible ? View.VISIBLE : View.GONE);
+        mLeftAffordanceView.setVisibility(View.GONE);
         mLeftAffordanceView.setImageDrawable(drawable);
         mLeftAffordanceView.setContentDescription(contentDescription);
         mLeftAffordanceView.setDefaultFilter(shouldGrayScale ? mGrayScaleFilter : null);

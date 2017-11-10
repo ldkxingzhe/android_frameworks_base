@@ -44,6 +44,7 @@
 
     <com.android.systemui.statusbar.KeyguardAffordanceView
         android:id="@+id/camera_button"
+        android:visibility="gone"
         android:layout_height="@dimen/keyguard_affordance_height"
         android:layout_width="@dimen/keyguard_affordance_width"
         android:layout_gravity="bottom|end"
@@ -53,6 +54,7 @@
 
     <com.android.systemui.statusbar.KeyguardAffordanceView
         android:id="@+id/left_button"
+        android:visibility="gone"
         android:layout_height="@dimen/keyguard_affordance_height"
         android:layout_width="@dimen/keyguard_affordance_width"
         android:layout_gravity="bottom|start"

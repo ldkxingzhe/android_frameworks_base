@@ -1032,7 +1032,7 @@
     <!-- Enable emergency call when sim is locked or puk locked. Some countries/carriers do not
          allow emergency calls to be placed without the IMSI, which is locked in the SIM.
          If so, this should be set to 'false' in an overlay. -->
-    <bool name="config_enable_emergency_call_while_sim_locked">true</bool>
+    <bool name="config_enable_emergency_call_while_sim_locked">false</bool>
 
     <!-- Control the behavior when the user long presses the home button.
             0 - Nothing
