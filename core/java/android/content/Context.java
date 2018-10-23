@@ -4049,6 +4049,15 @@ public abstract class Context {
      */
     public static final String TIME_ZONE_RULES_MANAGER_SERVICE = "timezone";
 
+	/**
+	 * Use with {@link #getSystemService} to retrieve an
+	 * LdkManager
+	 * @hide
+	 *
+	 * @see #getSystemService
+	 */
+	public static final String LDK_MANAGER_SERVICE = "ldkservice";
+
     /**
      * Determine whether the given permission is allowed for a particular
      * process and user ID running in the system.

@@ -897,6 +897,16 @@ final class SystemServiceRegistry {
             public RulesManager createService(ContextImpl ctx) {
                 return new RulesManager(ctx.getOuterContext());
             }});
+
+		registerService(Context.LDK_MANAGER_SERVICE, LdkManager.class,
+						new CachedServiceFetcher<LdkManager>(){
+			@Override
+			public LdkManager createService(ContextImpl ctx) throws ServiceNotFoundException{
+				IBinder b = ServiceManager.getServiceOrThrow(Context.LDK_MANAGER_SERVICE);
+				ILdkManager service = ILdkManager.Stub.asInterface(b);
+				return new LdkManager(service);
+			}
+		});
     }
 
     /**

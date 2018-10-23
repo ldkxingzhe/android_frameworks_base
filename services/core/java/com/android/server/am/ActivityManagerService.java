@@ -401,6 +401,7 @@ import com.android.server.ServiceThread;
 import com.android.server.SystemConfig;
 import com.android.server.SystemService;
 import com.android.server.SystemServiceManager;
+import com.android.server.ldk.LdkManagerService;
 import com.android.server.ThreadPriorityBooster;
 import com.android.server.Watchdog;
 import com.android.server.am.ActivityStack.ActivityState;
@@ -607,6 +608,7 @@ public class ActivityManagerService extends IActivityManager.Stub
 
     /** All system services */
     SystemServiceManager mSystemServiceManager;
+	LdkManagerService    mLdkManagerService;
     AssistUtils mAssistUtils;
 
     private Installer mInstaller;
@@ -2905,6 +2907,11 @@ public class ActivityManagerService extends IActivityManager.Stub
     protected ActivityStackSupervisor createStackSupervisor() {
         return new ActivityStackSupervisor(this, mHandler.getLooper());
     }
+
+
+	public void setLdkManagerService(LdkManagerService ldkManagerService){
+		mLdkManagerService = ldkManagerService;
+	}
 
     public void setSystemServiceManager(SystemServiceManager mgr) {
         mSystemServiceManager = mgr;

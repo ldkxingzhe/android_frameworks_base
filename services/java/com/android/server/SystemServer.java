@@ -97,6 +97,7 @@ import com.android.server.pm.OtaDexoptService;
 import com.android.server.pm.PackageManagerService;
 import com.android.server.pm.ShortcutService;
 import com.android.server.pm.UserManagerService;
+import com.android.server.ldk.LdkManagerService;
 import com.android.server.policy.PhoneWindowManager;
 import com.android.server.power.PowerManagerService;
 import com.android.server.power.ShutdownThread;
@@ -241,6 +242,7 @@ public final class SystemServer {
     private WebViewUpdateService mWebViewUpdateService;
     private DisplayManagerService mDisplayManagerService;
     private PackageManagerService mPackageManagerService;
+	private LdkManagerService mLdkManagerService;
     private PackageManager mPackageManager;
     private ContentResolver mContentResolver;
     private EntropyMixer mEntropyMixer;
@@ -407,6 +409,7 @@ public final class SystemServer {
         try {
             traceBeginAndSlog("StartServices");
             startBootstrapServices();
+			startLdkServices();
             startCoreServices();
             startOtherServices();
             SystemServerInitThreadPool.shutdown();
@@ -508,6 +511,13 @@ public final class SystemServer {
         final Context systemUiContext = activityThread.getSystemUiContext();
         systemUiContext.setTheme(DEFAULT_SYSTEM_THEME);
     }
+
+	private void startLdkServices(){
+		traceBeginAndSlog("StartLdkServices");
+		mLdkManagerService = LdkManagerService.main(mSystemContext);
+		mActivityManagerService.setLdkManagerService(mLdkManagerService);
+		traceEnd();
+	}
 
     /**
      * Starts the small tangle of critical services that are needed to get
