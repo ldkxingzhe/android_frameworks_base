@@ -15,7 +15,7 @@ public class LdkManager{
 		mService = service;
 	}
 
-	boolean isPackageInWhiteList(String packageName){
+	public boolean isPackageInWhiteList(String packageName){
 		try{
 			return mService.isPackageInWhiteList(packageName);
 		}catch(RemoteException e){
@@ -23,7 +23,7 @@ public class LdkManager{
 		}
 	}
 
-	List<String> getWhiteListActions(String packageName){
+	public List<String> getWhiteListActions(String packageName){
 		try{
 			return mService.getWhiteListActions(packageName);
 		}catch(RemoteException e){
@@ -31,7 +31,7 @@ public class LdkManager{
 		}
 	}
 
-	void addPackageWhiteList(String packageName){
+	public void addPackageWhiteList(String packageName){
 		try{
 			mService.addPackageWhiteList(packageName);
 		}catch(RemoteException e){
@@ -39,7 +39,7 @@ public class LdkManager{
 		}
 	}
 
-	void addActionWhiteList(String packageName, String action){
+	public void addActionWhiteList(String packageName, String action){
 		try{
 			mService.addActionWhiteList(packageName, action);
 		}catch(RemoteException e){
